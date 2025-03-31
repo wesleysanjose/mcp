@@ -3,3 +3,5 @@ anthropic
 python-dotenv
 requests
 bs4
+flask
+openai
