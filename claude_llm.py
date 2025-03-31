@@ -6,14 +6,19 @@ from llm_interface import LLMInterface
 class ClaudeLLM(LLMInterface):
     """Claude LLM provider implementation."""
     
-    def __init__(self, api_key: str, model: str):
+    def __init__(self, api_key: str, model: str, base_url: str = None):
         """Initialize the Claude LLM provider.
         
         Args:
             api_key: Anthropic API key
             model: Claude model name
+            base_url: Optional custom API endpoint for Claude
         """
-        self.client = Anthropic(api_key=api_key)
+        client_kwargs = {"api_key": api_key}
+        if base_url:
+            client_kwargs["base_url"] = base_url
+        
+        self.client = Anthropic(**client_kwargs)
         self.model = model
     
     def format_tools(self, tools: List[Tool]) -> List[Dict[str, Any]]:

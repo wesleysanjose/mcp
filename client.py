@@ -38,8 +38,9 @@ class MCPClient:
             if not api_key:
                 raise ValueError("ANTHROPIC_API_KEY not found. Please add it to your .env file.")
             
+            base_url = os.getenv("CLAUDE_BASE_URL")
             model = model or os.getenv("CLAUDE_MODEL", "claude-3-5-sonnet-20241022")
-            self.llm = ClaudeLLM(api_key, model)
+            self.llm = ClaudeLLM(api_key, model, base_url)
             
         elif self.llm_provider == "openai":
             api_key = os.getenv("OPENAI_API_KEY", "dummy-api-key")  # Allow dummy key for local servers
