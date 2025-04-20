@@ -1,0 +1,18 @@
+  {
+      "mcpServers": {
+        "finviz": {
+          "command": "/Users/yibeihe/miniconda3/condabin/conda",
+          "args": [
+            "run",
+            "-n",
+            "finviz",
+            "--no-capture-output",
+            "mcp",
+            "run",
+            "/Users/yibeihe/dev/finviz/finviz_mcp_server.py"
+          ]
+        }
+      }
+    }
+    
+    
